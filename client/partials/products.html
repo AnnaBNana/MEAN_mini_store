@@ -1,0 +1,32 @@
+<div ng-controller="productsController">
+  <div class="add">
+
+    <p><input type="text" placeholder="search..." ng-model="searchInput.name"></p>
+    <p><input type="submit" value="Filter" ng-click="applySearch()"></p>
+
+    <p class="small_title">Add a new Product</p>
+    <p>Name:</p>
+    <p><input type="text" placeholder="name..." ng-model="newProduct.name"></p>
+    <p>Image (url):</p>
+    <p><input type="text" placeholder="http://" ng-model="newProduct.url"></p>
+    <p>Description:</p>
+    <p><textarea class="desc" ng-model="newProduct.desc"></textarea></p>
+    <p>Initial Quantity:</p>
+    <p><select ng-model="newProduct.qty" ng-options="qty for qty in qty">
+      <option value="" disabled>Select Quantity</option>
+    </select></p>
+    <p><input type="submit" value="Create" ng-click="addProduct()"></p>
+
+  </div>
+
+  <div class="main" >
+    <div class="products" ng-repeat="product in products | filter:search | limitTo:displayLimit">
+      <img ng-src="{{product.image_url}}" alt="" />
+      <p>{{product.name}}</p>
+      <p>({{product.qty}} left)</p>
+    </div>
+    <p class="ctr"><a ng-click="changeLimit()">Show More</a></p>
+
+  </div>
+
+</div>

@@ -1,0 +1,85 @@
+* {
+  font-family: Verdana, sans-serif;
+  color: #454c53;
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid #454c53;
+  width: 90%
+}
+table th {
+  background-color: #cdd3d9;
+  text-align: left;
+  border-right: 1px solid #454c53;
+  padding: 6px;
+}
+table tr:nth-of-type(even) {
+  background-color: #e9edf2;
+}
+table td {
+  border-right: 1px solid #454c53;
+  padding: 6px;
+}
+.error {
+  color: #cc4216;
+  font-size: 0.8em;
+}
+input[type="text"] {
+  outline: none;
+}
+.search_name {
+  width: 90%;
+  text-align: right;
+}
+.small_title {
+  text-decoration: underline;
+}
+a {
+  color: #2b8b9c;
+}
+input[type="submit"] {
+  background-color: #2b8b9c;
+  border: none;
+  padding: 3px 14px;
+  color: #fff;
+  margin-left: 4px;
+  border-radius: 4px;
+  outline: none;
+}
+textarea {
+  outline: none;
+}
+.desc {
+  width: 150px;
+  height: 150px;
+  resize: none;
+}
+.add {
+  width: 15%;
+  display: inline-block;
+  vertical-align: top;
+}
+.main {
+  width: 80%;
+  display: inline-block;
+  vertical-align: top;
+}
+.products {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 20px;
+}
+.products p {
+  text-align: center;
+}
+img {
+  width: 140px;
+  height: 140px;
+  margin: 0 20px;
+}
+.ctr {
+  text-align: center;
+}
+.orders {
+  margin-left: 20px;
+}

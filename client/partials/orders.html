@@ -1,0 +1,39 @@
+<div ng-controller="ordersController">
+  <p class="small_title">Add a new order</p>
+  <p>Customer:
+    <select class="customer" ng-options="customer as customer.name for customer in customers" ng-model="newOrder.customer">
+      <option value="" disabled>Select One</option>
+    </select>
+  </p>
+  <p>
+    Order:
+    <select ng-model="newOrder.product" ng-options="product as product.name for product in products" ng-change="addQty()">
+      <option value="" disabled>Select One</option>
+    </select>
+    <span ng-if="selected">
+      <select ng-model="newOrder.qty" ng-options="qty for qty in qty">
+        <option value="" disabled>Select One</option>
+      </select>
+    </span>
+  </p>
+  <p><button type="button" ng-click="addOrder()">Order</button></p>
+
+  <p class="search_name"><input type="text" placeholder="filter..." ng-model="filter_name"></p>
+
+  <table>
+    <thead>
+      <th>Customer Name</th>
+      <th>Product</th>
+      <th>Quantity</th>
+      <th>Date</th>
+    </thead>
+    <tbody>
+      <tr ng-repeat="order in orders | filter: filter_name">
+        <td>{{order.customer}}</td>
+        <td>{{order.product}}</td>
+        <td>{{order.qty}}</td>
+        <td>{{order.date | date: "longDate"}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

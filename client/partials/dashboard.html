@@ -1,0 +1,29 @@
+<div class="dashboard" ng-controller="dashboardsController">
+
+  <div class="add">
+    <p><input type="text" placeholder="search..." ng-model="searchInput.name"></p>
+    <p><input type="submit" value="Filter" ng-click="applySearch()"></p>
+  </div>
+
+  <div class="main">
+    <div class="products" ng-repeat="product in products | filter:search | limitTo:productLimit">
+      <img ng-src="{{product.image_url}}" alt="" />
+      <p>{{product.name}}</p>
+      <p>({{product.qty}} left)</p>
+    </div>
+    <p class="ctr"><a ng-click="increaseLimit()">Show More</a></p>
+
+    <p class="small_title">Recent Orders</p>
+    <div class="orders" ng-repeat="order in orders | limitTo:3 | filter:search">
+      <p>{{order.customer}} purchased {{order.qty}} {{order.product}}(s) (<span am-time-ago="order.date"></span>)</p>
+    </div>
+    <a href="#/orders">Show all Orders...</a>
+
+    <p class="small_title">New Customers</p>
+    <div class="orders" ng-repeat="customer in customers | limitTo:3 | filter:search">
+      <p>{{customer.name}} joined the store. (<span am-time-ago="customer.created_at"></span>)</p>
+    </div>
+    <a href="#/customers">Show all Customers...</a>
+  </div>
+
+</div>
